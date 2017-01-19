@@ -8,23 +8,18 @@
     
         <meta charset="utf-8">
     
-        <!-- Description, Keywords and Author -->
-    
         <meta name="description" content="">
     
         <meta name="author" content="">
     
         
     
-        <title>:: avana LLC | Contact ::</title>
+        <title>gourmet</title>
     
     	<?php echo html_tag('link', array('rel' => 'shortcut icon', 'type' => 'image/x-icon', 'href' => Asset::get_file('assets/img/favicon.ico', 'img'))); ?>
     
-        <!-- style -->
+        <!-- css -->
         <?php echo Asset::render('add_css'); ?>
-        
-        <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
-        <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
 
     </head>
     

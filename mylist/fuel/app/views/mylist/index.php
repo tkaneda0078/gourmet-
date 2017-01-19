@@ -90,7 +90,7 @@
     
                     <figcaption>
     
-                        <h2><?php echo $data['name']; ?><span> Exhibition</span></h2>
+                        <h2><?php echo $data['name']; ?></h2>
         
         				<p><?php echo $data['address']; ?></p>
         
