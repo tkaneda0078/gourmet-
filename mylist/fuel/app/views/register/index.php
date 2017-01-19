@@ -23,8 +23,6 @@
         	<header>
 
             	<?php echo Asset::img('work/works-image-2.jpg', array('class' => 'img-responsive')); ?>
-            	
-            	<?php echo Asset::img('work/works-image-1.jpg', array('class' => 'img-responsive')); ?>
 
             </header>
 
@@ -38,41 +36,43 @@
        
         <div class="clearfix">
         
-        <!-- alert-messege-area -->
-        
-        <section>
-            
-            <div>
-                
-                <ul class="error_msg">
-                    
-                    <?php if (isset($error_msg)): ?>
-                    
-                        <?php foreach ($error_msg as $message): ?>
-                        
-                        <li>
-                            
-                            <?php echo $message; ?>
-                            
-                        </li>
-                        
-                        <?php endforeach; ?>
-                        
-                    <?php endif; ?>
-                    
-                </ul>
-                
-            </div>
-            
-        </section>
-    
-        <!-- alert-messege-area -->
-        
         </div>
 
         <div id="message"></div>
 
             <?php echo Form::open(array('action' => 'register', 'name' => 'cform', 'id' => 'cform', 'enctype' => 'multipart/form-data')); ?>
+            
+                <!-- alert-messege-area start-->
+                <section>
+            
+                    <div>
+                        
+                        <ul class="error_msg">
+                            
+                            <?php if (isset($error_msg)): ?>
+                            
+                                <?php foreach ($error_msg as $message): ?>
+                                
+                                <li>
+                                    
+                                    <div class="alert alert-danger" role="alert">
+                                        
+                                        <?php echo $message; ?>
+                                    
+                                    </div>
+                                    
+                                </li>
+                                
+                                <?php endforeach; ?>
+                                
+                            <?php endif; ?>
+                            
+                        </ul>
+                        
+                    </div>
+                    
+                </section>
+                <!-- alert-messege-area end-->
 
                 <div class="row">
 
