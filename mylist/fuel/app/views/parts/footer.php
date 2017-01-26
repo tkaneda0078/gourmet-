@@ -1,19 +1,3 @@
-<!-- logo -->
-
-<!--<h1>-->
-
-<!--    <a href="<?php //echo Uri::create('mylist'); ?>" title="gourmet">-->
-        
-<!--        <?php //echo Asset::img('gourmet.png', array('title' => 'gourmet', 'alt' => 'gourmet')); ?>-->
-        
-<!--    </a>-->
-
-<!--</h1>-->
-
-<!-- logo -->
-
-<!-- nav -->
-
 <nav role="footer-nav">
 
 	<ul>
@@ -22,13 +6,9 @@
 
         <li><?php echo Html::anchor('about', 'About'); ?></li>
 
-        <!--<li><a href="contact.html" title="Contact">Contact</a></li>-->
-
     </ul>
 
 </nav>
-
-<!-- nav -->
 
 <ul role="social-icons" class="share-buttons">
     <li>

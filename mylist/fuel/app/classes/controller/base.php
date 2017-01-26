@@ -1,17 +1,30 @@
 <?php
 /**
- * 全viewの共通コントローラ
- *
- * @package app
+ * 全viewに共通する処理を行うコントローラークラス
+ * 
+ * クライアントサイドを統一にさせる。
+ * 
+ * @author tkaneda
+ * @package Controller
  */
 
 class Controller_Base extends Controller_Template
 {
+    /**
+     * 全viewを統一にする。
+     *
+     * どのコントローラーが呼びだされた時に。
+     * このコンストラクタが呼び出される。
+     * 
+     * @access public
+     */
     public function before()
     {
         parent::before();
+        
         //header.phpをテンプレートの$headerとbindさせる。
         $this->template->header = View::forge('parts/header');
+        
         //footer.phpをテンプレートの$footerとbindさせる。
         $this->template->footer = View::forge('parts/footer');
         
@@ -43,9 +56,4 @@ class Controller_Base extends Controller_Template
             ), array(), 'add_js', false);
     }
 
-    public function after($response)
-    {
-        $response = parent::after($response);
-        return $response;
-    }
 }

@@ -20,8 +20,6 @@
 
             <li><?php echo Html::anchor('about', 'About'); ?></li>
 
-            <!--<li><a href="contact.html" title="Contact">Contact</a></li>-->
-
         </ul>
 
     </nav>

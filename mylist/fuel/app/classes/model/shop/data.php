@@ -1,5 +1,14 @@
 <?php
-
+/**
+ * 店舗情報モデルクラス
+ * 
+ * リレーション定義
+ * バリデーション処理
+ * ぐるなびAPIを利用して、詳細な店舗情報を取得する。
+ * 
+ * @author tkaneda
+ * @package Model
+ */
 class Model_Shop_Data extends \Orm\Model
 {
 	protected static $_has_many = array(
@@ -38,6 +47,14 @@ class Model_Shop_Data extends \Orm\Model
 
 	protected static $_table_name = 'shop_data';
 	
+	/**
+     * バリデーション関数
+     *
+     * ユーザーが入力した店舗情報のチェックを行う。
+     * 
+     * @access public
+     * @return $val バリデーション結果
+     */
 	public static function validate()
 	{
 		$val = Validation::forge();
@@ -57,9 +74,14 @@ class Model_Shop_Data extends \Orm\Model
 	}
 	
 	/**
-     * ぐるなび情報を取得
+     * ぐるなびAPI関数
      *
+     * ユーザーが入力した店舗情報をもとにより詳細な情報を取得する。
+     * また、店舗詳細画面へ遷移する際に呼び出される時は、
+     * ぐるなびの店舗IDがDBに存在する場合に使用される。
      * 
+     * @access public
+     * @return array $gnavi_info ぐるなび情報
      */
     public static function getGnaviInfo($shop_data, $gnavi_shop_id = null)
     {
@@ -67,15 +89,17 @@ class Model_Shop_Data extends \Orm\Model
 
          //エンドポイントのURIとフォーマットパラメータを変数に入れる
         $uri   = "http://api.gnavi.co.jp/RestSearchAPI/20150630/";
+        
         //APIアクセスキーを変数に入れる
         $acckey= "24d415daefe2e54d2992ebc9ffa68b85";
+        
         //返却値のフォーマットを変数に入れる
         $format= "json";
         
         $name  = urldecode($shop_data['name']);
         $address = urldecode($shop_data['address']);
 
-        // gnavi_shop_idが存在すう場合true
+        // gnavi_shop_idが存在する場合true
         if ( ! empty($gnavi_shop_id))
         {
         	$id = urldecode($gnavi_shop_id);
@@ -90,11 +114,10 @@ class Model_Shop_Data extends \Orm\Model
         
         //API実行
         $json = file_get_contents($url);
-        //取得した結果をオブジェクト化
+        
         $obj  = json_decode($json);
 
         //結果をパース
-        //トータルヒット件数、店舗番号、店舗名、最寄の路線、最寄の駅、最寄駅から店までの時間、店舗の小業態を出力
         foreach((array)$obj as $key => $restArray)
         {
             if(strcmp($key, "rest") == 0)

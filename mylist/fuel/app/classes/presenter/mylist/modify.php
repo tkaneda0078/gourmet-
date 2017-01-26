@@ -1,12 +1,20 @@
 <?php
 /**
- * グルメ編集プレゼンタ
- *
- * @package app
+ * 店舗情報の編集を行うプレゼンタクラス
+ * 
+ * @author tkaneda
+ * @package Presenter
  */
- 
 class Presenter_Mylist_modify extends Presenter
 {
+    /**
+     * 店舗情報の編集を行う関数
+     *
+     * コントローラーでセットされた店舗IDをもとに、
+     * 店舗情報を編集を行う。
+     * 
+     * @access public
+     */
     public function view()
     {
         $shop_data = array();
@@ -22,7 +30,7 @@ class Presenter_Mylist_modify extends Presenter
             ->where('shop_id', $data[0]['shop_photo_id'])
             ->execute()->as_array();
         
-        // ゼロを消したかった
+        // 配列の階層を変更
         foreach ($data[0] as $key => $val)
         {
             $shop_data[$key] = $val;
