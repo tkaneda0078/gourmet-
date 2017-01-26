@@ -22,7 +22,7 @@
 
         	<header>
 
-            	<?php echo Asset::img('work/works-image-2.jpg', array('class' => 'img-responsive')); ?>
+            	<?php echo Asset::img('work/works-image-3.jpg', array('class' => 'img-responsive')); ?>
 
             </header>
 
@@ -43,6 +43,7 @@
             <?php echo Form::open(array('action' => 'register', 'name' => 'cform', 'id' => 'cform', 'enctype' => 'multipart/form-data')); ?>
             
                 <!-- alert-messege-area start-->
+
                 <section>
             
                     <div>
@@ -72,6 +73,7 @@
                     </div>
                     
                 </section>
+                
                 <!-- alert-messege-area end-->
 
                 <div class="row">

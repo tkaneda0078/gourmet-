@@ -12,8 +12,6 @@
     
         <meta name="author" content="">
     
-        
-    
         <title>gourmet</title>
     
     	<?php echo html_tag('link', array('rel' => 'shortcut icon', 'type' => 'image/x-icon', 'href' => Asset::get_file('assets/img/favicon.ico', 'img'))); ?>
@@ -26,18 +24,21 @@
     <body>
         
         <header role="header">
+            
             <!-- header.phpファイルを読み込む-->
             <?php echo $header; ?>
             
         </header>
         
         <main role="main-home-wrapper" class="container">
+            
             <!-- 各アクションの内容を読み込む-->
             <?php echo $content; ?>
             
         </main>
         
         <footer role="footer">
+            
             <!-- footer.phpファイルを読み込む-->
             <?php echo $footer; ?>
             
