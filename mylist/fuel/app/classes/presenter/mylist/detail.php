@@ -1,14 +1,24 @@
 <?php
 /**
- * グルメ詳細プレゼンタ
- *
- * @package app
+ * 登録済みの店舗情報の取得を行うプレゼンタクラス
+ * 
+ * コントローラから呼び出されて、店舗IDをもとに、
+ * 店舗情報を取得を行う。
+ * 
+ * @author tkaneda
+ * @package Presenter
  */
- 
 class Presenter_Mylist_Detail extends Presenter
 {
     protected static $model = '\Model_Shop_data';
     
+    /**
+     * 登録済みの全店舗情報を取得する関数
+     *
+     * 店舗IDをもとに店舗情報の取得を行う。
+     * 
+     * @access public
+     */
     public function view()
     {
         $shop_data  = array();
@@ -25,7 +35,7 @@ class Presenter_Mylist_Detail extends Presenter
             ->where('shop_id', $data[0]['shop_photo_id'])
             ->execute()->as_array();
         
-        // ゼロを消したかった
+        // 配列の階層を変更
         foreach ($data[0] as $key => $val)
         {
             $shop_data[$key] = $val;

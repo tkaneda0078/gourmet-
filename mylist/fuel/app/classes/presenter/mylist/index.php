@@ -1,20 +1,26 @@
 <?php
 /**
- * グルメ取得、登録プレゼンタ
- *
- * @package app
- */
- 
- /**
- * グルメ情報を取得、登録
+ * 店舗情報に関する処理を行うプレゼンタクラス
+ * 
+ * コントローラから呼び出されて、店舗情報をもとに、
+ * 店舗情報を取得、登録を行う。
+ * 
+ * @author tkaneda
+ * @package Presenter
  */
 class Presenter_Mylist_index extends Presenter
 {
     protected static $model = '\Model_Shop_data';
     
+    /**
+     * 登録済みの全店舗情報を取得する関数
+     *
+     * 全店舗情報を取得後にviweに情報を渡す。
+     * 
+     * @access public
+     */
     public function view()
     {
-        // 登録済みのお店情報を全件取得
         $gourmet_list = \DB::select('a.id', 'a.shop_photo_id', 'a.name', 'a.address', 'a.comments', 'b.saved_to')
             ->from(array(\Model_Shop_data::table(), 'a'))
             ->join(array(\Model_Shop_Photo::table(), 'b'))
@@ -26,6 +32,16 @@ class Presenter_Mylist_index extends Presenter
         
     }
     
+    /**
+     * ユーザーによって入力された店舗情報を登録する関数
+     *
+     * コントローラーから渡された値をDBに登録する。
+     * 
+     * @access public
+     * @return Controller_Mylist::action_index
+     * @throws HttpServerErrorException
+     * @todo 未対応（登録日時を日本時間にする）
+     */
     public function shop_register()
     {
         \DB::start_transaction();
@@ -57,9 +73,7 @@ class Presenter_Mylist_index extends Presenter
                 'size'         => $data['size'],
                 'saved_to'     => $this->img_path,
                 'release_flag' => 1,
-                // 'created_at'   => Date::time()->format('mysql'),
             ));
-            
             
             if ( ! $shop_data->save())
             {

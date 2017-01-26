@@ -8,7 +8,6 @@
 
             	<h2><?php echo $shop_data['name']; ?></h2>
             	
-                <!--<a href="#">Visit online <i class="fa fa-external-link" aria-hidden="true"></i></a>-->
                 <p><?php echo $shop_data['address']; ?></p>
 
             </header>
@@ -38,8 +37,6 @@
     </div>
 
     <div class="clearfix"></div>
-
-    
 
     <div class="work-images grid">
 

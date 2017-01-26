@@ -20,7 +20,7 @@
 
         </section>
         
-        <!-- 未登録 -->
+        <!-- 未登録 start-->
         <?php if (empty($gourmet_list)): ?>
         
         <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -38,7 +38,7 @@
         <div class="clearfix"></div>
         
         <?php endif; ?>
-        <!-- 未登録 -->
+        <!-- 未登録 end-->
         
         <?php if ( ! empty($gourmet_list)): ?>
         
@@ -48,7 +48,7 @@
         
         <?php if ($flag == 0): ?>
         
-        <!-- 最新の記事 -->
+        <!-- 最新の記事 start-->
         
         <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
             
@@ -72,11 +72,11 @@
         
         <div class="clearfix"></div>
         
-        <!-- 最新の記事 -->
+        <!-- 最新の記事 end-->
     
         <?php else: ?>
     
-        <!-- 過去の記事 -->
+        <!-- 過去の記事 start-->
         
         <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
     
@@ -106,7 +106,7 @@
     
         </section>
         
-        <!-- 過去の記事 -->
+        <!-- 過去の記事 end-->
         
         <?php endif; ?>
         
@@ -116,7 +116,6 @@
         
         <?php endif; ?>
         
-    
         <div class="clearfix"></div>
     
     </div>
