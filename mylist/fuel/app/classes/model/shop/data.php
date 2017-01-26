@@ -59,17 +59,17 @@ class Model_Shop_Data extends \Orm\Model
 	{
 		$val = Validation::forge();
 		
-		$val->add('name', '名前')
+		$val->add('name', 'name')
 			->add_rule('required')
 			->add_rule('max_length', 20);
 		
-		$val->add('address', '住所')
+		$val->add('address', 'address')
 			->add_rule('required')
 			->add_rule('max_length', 50);
 		
-		$val->add('comments', 'コメント')
+		$val->add('comments', 'comments')
 			->add_rule('max_length', 200);
-			
+		
 		return $val;
 	}
 	
