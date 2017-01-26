@@ -20,17 +20,17 @@
 
         	<section>
 
-                <p><strong>コメント</strong><br/>
+                <p><strong>Your comments</strong><br/>
                 
                 <p><?php echo $comments; ?></p>
                 
-                <p><strong>営業時間</strong><br/>
+                <p><strong>Opening hour</strong><br/>
                 
-                <p><?php echo $opentime; ?></p>
+                <p><?php echo empty($opentime) ? 'not found' : $opentime; ?></p>
                 
-                <p><strong>店舗リンク</strong><br/>
+                <p><strong>Store link</strong><br/>
                 
-				<?php echo Html::anchor($url, $name, array('target' => '_blank')); ?></p>
+				<?php echo empty($url) ? 'not found' : Html::anchor($url, $name, array('target' => '_blank')); ?></p>
 
             </section>
 
