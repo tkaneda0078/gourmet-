@@ -1,10 +1,12 @@
 <?php
 /**
- * グルメ登録コントローラ
- *
- * @package app
+ * 店舗登録コントローラークラス
+ * 
+ * 店舗登録の処理全般を実行する。
+ * 
+ * @author tkaneda
+ * @package Controller
  */
-
 class Controller_Register_index extends Controller_Base
 {
     // 入力フォームで扱うフィールドを配列として設定
@@ -12,11 +14,28 @@ class Controller_Register_index extends Controller_Base
 
     private $error_count = 0;
     
+    /**
+     * 店舗登録画面を表示させる関数
+     *
+     * viewを呼び出す
+     * 
+     * @access public
+     */
     public function action_index()
 	{
 	    $this->template->content = View::forge('register/index');
 	}
 
+    /**
+     * [POST]店舗情報を処理する関数
+     *
+     * 入力された店舗情報のバリデーションチェックを行う。
+     * 入力に問題がない場合は、下部のaction_confirm関数を実行する。
+     * 
+     * @access public
+     * @return array $data エラーメッセージ （バリデーションチェックに引っ掛かった場合）
+     * @see Controller_Register_index::action_confirm
+     */
 	public function post_index()
 	{
 	    // 各データのpost値をフラッシュセッションに保存
@@ -39,7 +58,7 @@ class Controller_Register_index extends Controller_Base
             }
         }
         
-        // アップロード処理を実行
+        // 画像アップロード処理を実行
         $result = $this->upload_process();
 
         if ( ! is_null($result))
@@ -57,9 +76,12 @@ class Controller_Register_index extends Controller_Base
 	}
 	
 	/**
-     * 確認画面
+     * 店舗登録確認画面へ値を渡す処理を行う関数
      *
+     * 入力された店舗情報をもとにぐるなびAPIを実行して、
+     * より詳細な店舗情報を取得する。
      * 
+     * @access public
      */
 	public function action_confirm()
 	{
@@ -69,13 +91,13 @@ class Controller_Register_index extends Controller_Base
 	    {
 	        $data[$field] = Session::get_flash($field);
 
-	        // セッション変数を次のリクエストを維持
 	        Session::keep_flash($field);
 	    }
 	    
 	    //ぐるなび情報取得
 	    $gnavi_info = Model_Shop_Data::getGnaviInfo($data);
 	    
+	    // 営業時間の文字列を整形
 	    $gnavi_info['opentime'] = str_replace('<BR>', '  ', $gnavi_info['opentime']);
 
 	    $data = array_merge($data, $gnavi_info);
@@ -83,20 +105,21 @@ class Controller_Register_index extends Controller_Base
 	    // ぐるなび店舗ID
 	    Session::set_flash('gnavi_shop_id', $gnavi_info['id']);
 
-	    // 画像のパス
-	    // upload_photos/4.png　例
 	    $data['img_path'] = Session::get_flash('img_path');
 	    Session::keep_flash('img_path');
 	    
 	    $this->template->content = View::forge('register/confirm', $data);
 
-	   // return Response::forge(View::forge('register/confirm', $data));
 	}
 	
-	/**
-     * 登録完了
+    /**
+     * [POST]店舗情報をDBに登録処理を行う関数
      *
+     * POST値、SESSION値をプレゼンタに渡し、
+     * プレゼンタで店舗情報登録処理を行う。
      * 
+     * @access public
+     * @see Presenter_Mylist_index::shop_register
      */
     public function action_complete()
     {
@@ -107,9 +130,10 @@ class Controller_Register_index extends Controller_Base
     }
 	
     /**
-     * 写真アップロード処理
-     *
+     * 店舗画像アップロード処理を行う関数
      * 
+     * @access protected
+     * @todo 未対応（画像登録日時を日本時間に設定）
      */
     protected function upload_process()
     {
@@ -131,37 +155,17 @@ class Controller_Register_index extends Controller_Base
 
             foreach (Upload::get_files() as $file)
             {
-                $photo_data['name']         = $file['basename'];
-                $photo_data['type']         = $file['type'];
-                $photo_data['size']         = $file['size'];
+                $photo_data['name'] = $file['basename'];
+                $photo_data['type'] = $file['type'];
+                $photo_data['size'] = $file['size'];
                 
-                // $photo_data = Model_Shop_Photo::forge(array(
-                //     'name'         => $file['basename'],
-                //     'type'         => $file['type'],
-                //     'size'         => $file['size'],
-                //     'saved_to'     => $file['saved_to'],
-                //     'release_flag' => 1,
-                //     // 'created_at'   => Date::time()->format('mysql'),
-                // ));
-                // debug::dump($file);
-                // debug::dump($photo_data);
-                // exit;
-
                 if (isset($file['saved_as']))
                 {
                     Session::set_flash('img_path', 'upload_photos/'.$file['saved_as']);
                 }
-                
-                // 設定を元にDBに保存
-                // DBに保存するときは、写真のパス(upload_photos/4.png)で保存する
-                // if ( ! $photo->save())
-                // {
-                //     $this->error_count++;
-                //     $data['error_msg']['upload'] = '再度アップロードをして下さい。';
-                // }
             }
             
-            // 登録時に使用
+            // 店舗画像を登録時に使用
             Session::set('photo_data', $photo_data);
         }
         
@@ -173,8 +177,5 @@ class Controller_Register_index extends Controller_Base
         
         return;
     }
-    
-    
-
 
 }

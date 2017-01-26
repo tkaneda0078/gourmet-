@@ -1,5 +1,13 @@
 <?php
-
+/**
+ * 店舗情報（画像）モデルクラス
+ * 
+ * リレーション定義
+ * 
+ * @author tkaneda
+ * @package Model
+ * @access protected
+ */
 class Model_Shop_Photo extends \Orm\Model
 {
 	protected static $_belongs_to = array(

@@ -2,11 +2,7 @@
 
 <main role="main-inner-wrapper" class="container">
 
-	
-
     <div class="row">
-
-    
 
     	<section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
 
@@ -26,8 +22,6 @@
 
         </section>
 
-        
-
         <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 
         	<article class="about-content">
@@ -44,11 +38,7 @@
 
         </section>
 
-        
-
         <div class="clearfix"></div>
-
-        
 
         <!-- thumbnails -->
 
@@ -111,7 +101,6 @@
             </div>
 
         <!-- thumbnails -->
-
 
     </div>
 
