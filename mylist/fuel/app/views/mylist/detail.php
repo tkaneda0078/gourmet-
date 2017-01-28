@@ -8,7 +8,9 @@
 
             	<h2><?php echo $shop_data['name']; ?></h2>
             	
-                <p><?php echo $shop_data['address']; ?></p>
+            	<p><strong>Address</strong>
+            	
+                <p><?php echo empty($shop_data['address']) ? '-------' : $shop_data['address']; ?></p>
 
             </header>
 
@@ -22,13 +24,13 @@
                     
                     <p><?php echo $shop_data['comments']; ?></p>
                     
-                    <p><strong>Opening hour</strong><br/>
+                    <!--<p><strong>Opening hour</strong><br/>-->
                     
-                    <p><?php echo empty($gnavi_data['opentime']) ? 'not found' : $gnavi_data['opentime']; ?></p>
+                    <p><?php //echo empty($gnavi_data['opentime']) ? 'not found' : $gnavi_data['opentime']; ?></p>
                     
-                    <p><strong>Store link</strong><br/>
+                    <!--<p><strong>Store link</strong><br/>-->
                     
-    				<?php echo empty($gnavi_data['url']) ? 'not found' : Html::anchor($gnavi_data['url'], $shop_data['name'], array('target' => '_blank')); ?></p>
+    				<?php //echo empty($gnavi_data['url']) ? 'not found' : Html::anchor($gnavi_data['url'], $shop_data['name'], array('target' => '_blank')); ?></p>
     
                 </section>
 

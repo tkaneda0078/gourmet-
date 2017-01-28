@@ -64,7 +64,7 @@ class Model_Shop_Data extends \Orm\Model
 			->add_rule('max_length', 20);
 		
 		$val->add('address', 'address')
-			->add_rule('required')
+			// ->add_rule('required')
 			->add_rule('max_length', 50);
 		
 		$val->add('comments', 'comments')
