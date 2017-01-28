@@ -41,12 +41,12 @@ class Presenter_Mylist_Detail extends Presenter
             $shop_data[$key] = $val;
         }
 
-        if ( ! empty($shop_data['gnavi_shop_id']))
-        {
-            // ぐるなび情報を取得
-            $gnavi_data = Model_Shop_Data::getGnaviInfo($shop_data, $shop_data['gnavi_shop_id']);
-            $gnavi_data['opentime'] = str_replace('<BR>', '  ', $gnavi_data['opentime']);
-        }
+        // if ( ! empty($shop_data['gnavi_shop_id']))
+        // {
+        //     // ぐるなび情報を取得
+        //     $gnavi_data = Model_Shop_Data::getGnaviInfo($shop_data, $shop_data['gnavi_shop_id']);
+        //     $gnavi_data['opentime'] = str_replace('<BR>', '  ', $gnavi_data['opentime']);
+        // }
         
         foreach ($photos as $val)
         {
@@ -54,7 +54,7 @@ class Presenter_Mylist_Detail extends Presenter
         }
 
         $this->set('shop_data', $shop_data);
-        $this->set('gnavi_data', $gnavi_data);
+        // $this->set('gnavi_data', $gnavi_data);
         $this->set('img_paths', $img_paths);
         $this->set('shop_id', $this->shop_id);
         

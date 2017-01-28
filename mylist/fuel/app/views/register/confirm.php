@@ -1,4 +1,4 @@
-<div class="contat-from-wrapper">
+<div class="contat-from-wrapper work-details">
     
     <?php echo Form::open('register/complete'); ?>
         
@@ -10,7 +10,9 @@
 
             	<h2><?php echo $name; ?></h2>
             	
-                <p><?php echo $address; ?></p>
+            	<p><strong>Address</strong>
+            	
+                <p><?php echo empty($address) ? '--------' : $address; ?></p>
 
             </header>
 
@@ -24,13 +26,9 @@
                 
                 <p><?php echo $comments; ?></p>
                 
-                <p><strong>Opening hour</strong><br/>
+                <!--<p><strong>Opening hour</strong><br/>-->
                 
-                <p><?php echo empty($opentime) ? 'not found' : $opentime; ?></p>
-                
-                <p><strong>Store link</strong><br/>
-                
-				<?php echo empty($url) ? 'not found' : Html::anchor($url, $name, array('target' => '_blank')); ?></p>
+                <!--<p><strong>Store link</strong><br/>-->
 
             </section>
 
@@ -57,9 +55,7 @@
         echo Form::hidden('address', $address);
         
         echo Form::hidden('comments', $comments);
-        
-        // echo Form::hidden('img_path', $img_path);
-        
+
         echo Form::submit('submit', 'complete');
 
     ?>

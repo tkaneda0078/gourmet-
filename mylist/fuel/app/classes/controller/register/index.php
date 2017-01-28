@@ -95,18 +95,18 @@ class Controller_Register_index extends Controller_Base
 	    }
 	    
 	    //ぐるなび情報取得
-	    $gnavi_info = Model_Shop_Data::getGnaviInfo($data);
+	   // $gnavi_info = Model_Shop_Data::getGnaviInfo($data);
 	    
-	    if ( ! empty($gnavi_info))
-	    {
-	        // 営業時間の文字列を整形
-	        $gnavi_info['opentime'] = str_replace('<BR>', '  ', $gnavi_info['opentime']);
+	   // if ( ! empty($gnavi_info))
+	   // {
+	   //     // 営業時間の文字列を整形
+	   //     $gnavi_info['opentime'] = str_replace('<BR>', '  ', $gnavi_info['opentime']);
     	    
-	        // ぐるなび店舗ID
-	        Session::set_flash('gnavi_shop_id', $gnavi_info['id']);
-	    }
+	   //     // ぐるなび店舗ID
+	   //     Session::set_flash('gnavi_shop_id', $gnavi_info['id']);
+	   // }
 
-	    $data = array_merge($data, $gnavi_info);
+	   // $data = array_merge($data, $gnavi_info);
 
 	    $data['img_path'] = Session::get_flash('img_path');
 	    Session::keep_flash('img_path');
