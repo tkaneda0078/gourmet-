@@ -3,6 +3,8 @@
 	<ul>
 
         <li class="nav-active"><?php echo Html::anchor('register', 'Register'); ?></li>
+        
+        <li><?php echo Html::anchor('gnavi', 'Gnavi Seach'); ?></li>
 
         <li><?php echo Html::anchor('about', 'About'); ?></li>
 

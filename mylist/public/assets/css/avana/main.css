@@ -64,3 +64,24 @@ ul.share-buttons .sr-only {
   text-decoration: none;
   color: rgb(255, 255, 255);
 }
+
+/*
+ gnavi検索画面
+*/
+.gnavi-image-size {
+  width: 360px;
+  height: 210px;
+}
+
+.gnavi-button {
+ width: 200px;
+ line-height: 45px;
+ text-transform: uppercase;
+ font-size: 21px;
+ color: #FFF;
+ font-weight: 800;
+ letter-spacing: 2px;
+ background-color: #e84d49;
+ margin: 15px auto;
+ margin-bottom: 0;  
+}
