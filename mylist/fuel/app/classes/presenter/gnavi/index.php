@@ -32,7 +32,7 @@ class Presenter_Gnavi_index extends Presenter
         try
         {
             $shop_data = Model_Shop_Data::forge(array(
-                'gnavi_shop_id' => $this->gnavi_data['id'],
+                'gnavi_id'      => $this->gnavi_data['id'],
                 'name'          => $this->gnavi_data['name'],
                 'address'       => $this->gnavi_data['address'],
                 'comments'      => null,
