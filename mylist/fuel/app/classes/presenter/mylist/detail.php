@@ -27,13 +27,13 @@ class Presenter_Mylist_Detail extends Presenter
             \DB::expr('CASE WHEN a.gnavi_id IS NOT NULL THEN g.url ELSE NULL END as "url"'),
             \DB::expr('CASE WHEN g.image IS NOT NULL THEN g.image ELSE b.saved_to END as "image"')
             )
-			->from(array(\Model_Shop_data::table(), 'a'))
-		    ->join(array(\Model_Shop_Photo::table(), 'b'), 'LEFT')
-			->on('a.shop_photo_id', '=', 'b.shop_id')
-			->join(array(\Model_Gnavi_data::table(), 'g'), 'LEFT')
-			->on('a.gnavi_id', '=', 'g.gnavi_shop_id')
-			->where('a.id', $this->shop_id)
-			->execute()->as_array();
+            ->from(array(\Model_Shop_data::table(), 'a'))
+            ->join(array(\Model_Shop_Photo::table(), 'b'), 'LEFT')
+            ->on('a.shop_photo_id', '=', 'b.shop_id')
+            ->join(array(\Model_Gnavi_data::table(), 'g'), 'LEFT')
+            ->on('a.gnavi_id', '=', 'g.gnavi_shop_id')
+            ->where('a.id', $this->shop_id)
+            ->execute()->as_array();
         
         $shop_data  = array();
         // 配列の階層を変更
