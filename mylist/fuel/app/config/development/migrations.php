@@ -8,6 +8,7 @@ return array(
       array(
         0 => '001_create_shop_data',
         1 => '002_create_shop_photos',
+        2 => '003_create_gnavi_data',
       ),
     ),
     'module' => 
