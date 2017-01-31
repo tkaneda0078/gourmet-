@@ -93,20 +93,6 @@ class Controller_Register_index extends Controller_Base
 
 	        Session::keep_flash($field);
 	    }
-	    
-	    //ぐるなび情報取得
-	   // $gnavi_info = Model_Shop_Data::getGnaviInfo($data);
-	    
-	   // if ( ! empty($gnavi_info))
-	   // {
-	   //     // 営業時間の文字列を整形
-	   //     $gnavi_info['opentime'] = str_replace('<BR>', '  ', $gnavi_info['opentime']);
-    	    
-	   //     // ぐるなび店舗ID
-	   //     Session::set_flash('gnavi_shop_id', $gnavi_info['id']);
-	   // }
-
-	   // $data = array_merge($data, $gnavi_info);
 
 	    $data['img_path'] = Session::get_flash('img_path');
 	    Session::keep_flash('img_path');
@@ -128,7 +114,6 @@ class Controller_Register_index extends Controller_Base
     {
         $this->template->content = Presenter::forge('mylist/index', 'shop_register')
             ->set('shop_data', Input::post())
-            ->set('gnavi_shop_id', Session::get_flash('gnavi_shop_id'))
             ->set('img_path', Session::get_flash('img_path'));
     }
 	

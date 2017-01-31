@@ -53,9 +53,17 @@
         <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
             
         	<figure class="effect-oscar">
-    
-            	<?php echo Asset::img($data['saved_to'], array('class' => 'img-responsive')); ?>
-    
+                
+                <?php if (empty($data['saved_to'])): ?>
+                
+                <?php echo Asset::img($data['image'], array('class' => 'img-responsive top-img-size')); ?>
+                
+                <?php else: ?>
+                
+            	<?php echo Asset::img($data['saved_to'], array('class' => 'img-responsive top-img-size')); ?>
+                
+                <?php endif; ?>
+                
                 <figcaption>
     
                 	<h2><?php echo $data['name']; ?></h2>
@@ -86,19 +94,27 @@
     
                 	<figure class="effect-oscar">
     
-                    <?php echo Asset::img($data['saved_to'], array('class' => 'img-responsive')); ?>
+                        <?php if (empty($data['saved_to'])): ?>
+                    
+                        <?php echo Asset::img($data['image'], array('class' => 'img-responsive top-img-size')); ?>
+                        
+                        <?php else: ?>
+                        
+                    	<?php echo Asset::img($data['saved_to'], array('class' => 'img-responsive top-img-size')); ?>
+                        
+                        <?php endif; ?>
     
-                    <figcaption>
-    
-                        <h2><?php echo $data['name']; ?></h2>
+                        <figcaption>
         
-        				<p><?php echo $data['address']; ?></p>
+                            <h2><?php echo $data['name']; ?></h2>
+            
+            				<p><?php echo $data['address']; ?></p>
+            
+            				<a href="<?php echo Uri::create('detail', array(), array('id' => $data['id'])); ?>">View more</a>
         
-        				<a href="<?php echo Uri::create('detail', array(), array('id' => $data['id'])); ?>">View more</a>
+                        </figcaption>
     
-                    </figcaption>
-    
-                </figure>
+                    </figure>
     
                 </li>
     
