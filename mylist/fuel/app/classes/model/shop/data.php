@@ -64,7 +64,7 @@ class Model_Shop_Data extends \Orm\Model
 			->add_rule('max_length', 20);
 		
 		$val->add('address', 'address')
-			// ->add_rule('required')
+			->add_rule('required')
 			->add_rule('max_length', 50);
 		
 		$val->add('comments', 'comments')
@@ -72,64 +72,5 @@ class Model_Shop_Data extends \Orm\Model
 		
 		return $val;
 	}
-	
-	/**
-     * ぐるなびAPI関数
-     *
-     * ユーザーが入力した店舗情報をもとにより詳細な情報を取得する。
-     * また、店舗詳細画面へ遷移する際に呼び出される時は、
-     * ぐるなびの店舗IDがDBに存在する場合に使用される。
-     * 
-     * @access public
-     * @return array $gnavi_info ぐるなび情報
-     */
-    public static function getGnaviInfo($shop_data, $gnavi_shop_id = null)
-    {
-        $gnavi_info = array();
-
-         //エンドポイントのURIとフォーマットパラメータを変数に入れる
-        $uri   = "http://api.gnavi.co.jp/RestSearchAPI/20150630/";
-        
-        //APIアクセスキーを変数に入れる
-        $acckey= "24d415daefe2e54d2992ebc9ffa68b85";
-        
-        //返却値のフォーマットを変数に入れる
-        $format= "json";
-        
-        $name  = urldecode($shop_data['name']);
-        $address = urldecode($shop_data['address']);
-
-        // gnavi_shop_idが存在する場合true
-        if ( ! empty($gnavi_shop_id))
-        {
-        	$id = urldecode($gnavi_shop_id);
-	        //URL組み立て
-	        $url  = sprintf("%s%s%s%s%s%s%s%s%s%s%s", $uri, "?format=", $format, "&keyid=", $acckey, "&id=", $id, "&name=",$name,"&address=", $address);
-        }
-        else
-        {
-        	//URL組み立て
-        	$url  = sprintf("%s%s%s%s%s%s%s%s%s", $uri, "?format=", $format, "&keyid=", $acckey, "&name=", $name,"&address=", $address);
-        }
-        
-        //API実行
-        $json = file_get_contents($url);
-        
-        $obj  = json_decode($json);
-
-        //結果をパース
-        foreach((array)$obj as $key => $restArray)
-        {
-            if(strcmp($key, "rest") == 0)
-            {
-                foreach((array)$restArray as $key => $val)
-                {
-                    $gnavi_info[$key] = $val;
-                }
-            }
-        }
-        
-        return $gnavi_info;
-    }
 
 }
