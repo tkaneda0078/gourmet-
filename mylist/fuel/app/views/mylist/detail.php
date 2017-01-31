@@ -22,15 +22,15 @@
     
                     <p><strong>Your comments</strong><br/>
                     
-                    <p><?php echo $shop_data['comments']; ?></p>
+                    <p><?php echo empty($shop_data['comments']) ? '--------' : $shop_data['comments']; ?></p>
                     
                     <!--<p><strong>Opening hour</strong><br/>-->
                     
-                    <p><?php //echo empty($gnavi_data['opentime']) ? 'not found' : $gnavi_data['opentime']; ?></p>
+                    <!--<p><?php //echo empty($gnavi_data['opentime']) ? 'not found' : $gnavi_data['opentime']; ?></p>-->
                     
-                    <!--<p><strong>Store link</strong><br/>-->
+                    <p><strong>Store link</strong><br/>
                     
-    				<?php //echo empty($gnavi_data['url']) ? 'not found' : Html::anchor($gnavi_data['url'], $shop_data['name'], array('target' => '_blank')); ?></p>
+    				<?php echo empty($shop_data['url']) ? 'not found' : Html::anchor($shop_data['url'], $shop_data['name'], array('target' => '_blank')); ?></p>
     
                 </section>
 
@@ -44,11 +44,7 @@
 
         <ul class="grid-lod effect-2" id="grid">
 
-            <?php foreach ($img_paths as $path): ?>
-
-            <li><?php echo Asset::img($path, array('class' => 'img-responsive img-size', 'style' => 'height: 525.781px;')); ?></li>
-            
-            <?php endforeach; ?>
+            <li><?php echo Asset::img($shop_data['image'], array('class' => 'img-responsive img-size', 'style' => 'height: 525.781px;')); ?></li>
             
         </ul>
 
