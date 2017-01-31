@@ -10,5 +10,7 @@ return array(
 	'detail'            => 'detail/index',
 	'modify'            => 'mylist/modify',
 	'about'             => 'about/index',
+	'gnavi'             => 'gnavi/index',
+	'gnavi/(:any)'      => 'gnavi/index/$1',
 
 );
