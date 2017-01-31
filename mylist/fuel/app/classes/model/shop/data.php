@@ -24,7 +24,7 @@ class Model_Shop_Data extends \Orm\Model
 	protected static $_properties = array(
 		'id',
 		'shop_photo_id',
-		'gnavi_shop_id',
+		'gnavi_id',
 		'name',
 		'address',
 		'comments',

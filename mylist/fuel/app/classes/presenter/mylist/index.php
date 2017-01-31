@@ -21,11 +21,13 @@ class Presenter_Mylist_index extends Presenter
      */
     public function view()
     {
-        $gourmet_list = \DB::select('a.id', 'a.shop_photo_id', 'a.name', 'a.address', 'a.comments', 'b.saved_to')
+        $gourmet_list = \DB::select('a.id', 'a.name', 'a.address', 'b.saved_to', 'g.image')
             ->from(array(\Model_Shop_data::table(), 'a'))
-            ->join(array(\Model_Shop_Photo::table(), 'b'))
+            ->join(array(\Model_Shop_Photo::table(), 'b'), 'LEFT')
             ->on('a.shop_photo_id', '=', 'b.shop_id')
-            ->group_by('shop_photo_id')
+            ->join(array(\Model_Gnavi_data::table(), 'g'), 'LEFT')
+            ->on('a.gnavi_id', '=', 'g.gnavi_shop_id')
+            ->order_by('a.id', 'desc')
             ->execute()->as_array();
 
         $this->set('gourmet_list', $gourmet_list);
@@ -54,10 +56,9 @@ class Presenter_Mylist_index extends Presenter
                 ->execute()->as_array();
 
             $max_shop_photo_id = $max_shop_photo_id[0]['max_id'] + 1;
-            
+
             $shop_data = Model_Shop_Data::forge(array(
                 'shop_photo_id' => $max_shop_photo_id,
-                'gnavi_shop_id' => $this->gnavi_shop_id,
                 'name'          => $this->shop_data['name'],
                 'address'       => $this->shop_data['address'],
                 'comments'      => $this->shop_data['comments'],
