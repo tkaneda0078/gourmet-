@@ -1,3 +1,14 @@
+/*
+ トップ画面
+*/
+.top-img-size {
+ width: 555px;
+ height: 370px;
+}
+
+/*
+ 登録画面
+*/
 .error_msg {
     color: #e84d49;
     list-style: none;
