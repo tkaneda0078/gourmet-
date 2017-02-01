@@ -75,7 +75,7 @@ class Model_Gnavi_Data extends \Orm\Model
         $uri   = "https://api.gnavi.co.jp/master/PrefSearchAPI/20150630/";
         
         //APIアクセスキーを変数に入れる
-        $acckey= "*******************************";
+        $acckey= "*****";
         
         //返却値のフォーマットを指定
         $format= "json";
