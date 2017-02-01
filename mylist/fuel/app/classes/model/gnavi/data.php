@@ -27,11 +27,11 @@ class Model_Gnavi_Data extends \Orm\Model
 	protected static $_observers = array(
 		'Orm\Observer_CreatedAt' => array(
 			'events' => array('before_insert'),
-			'mysql_timestamp' => false,
+			'mysql_timestamp' => true,
 		),
 		'Orm\Observer_UpdatedAt' => array(
 			'events' => array('before_update'),
-			'mysql_timestamp' => false,
+			'mysql_timestamp' => true,
 		),
 	);
 
@@ -75,7 +75,7 @@ class Model_Gnavi_Data extends \Orm\Model
         $uri   = "https://api.gnavi.co.jp/master/PrefSearchAPI/20150630/";
         
         //APIアクセスキーを変数に入れる
-        $acckey= "*****";
+        $acckey= "24d415daefe2e54d2992ebc9ffa68b85";
         
         //返却値のフォーマットを指定
         $format= "json";
@@ -128,7 +128,7 @@ class Model_Gnavi_Data extends \Orm\Model
         $uri   = "http://api.gnavi.co.jp/RestSearchAPI/20150630/";
         
         //APIアクセスキーを変数に入れる
-        $acckey= "*****************************";
+        $acckey= "24d415daefe2e54d2992ebc9ffa68b85";
         
         //返却値のフォーマットを変数に入れる
         $format= "json";
