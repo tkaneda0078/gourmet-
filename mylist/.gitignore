@@ -32,3 +32,5 @@ desktop.ini
 /fuel/app/cache/*/*
 /fuel/app/config/crypt.php
 /fuel/app/classes/model/gnavi/data.php
+
+/public/img/*

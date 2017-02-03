@@ -27,8 +27,6 @@
                 <p><?php echo $comments; ?></p>
                 
                 <!--<p><strong>Opening hour</strong><br/>-->
-                
-                <!--<p><strong>Store link</strong><br/>-->
 
             </section>
 

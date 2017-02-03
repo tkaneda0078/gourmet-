@@ -11,8 +11,8 @@ class Controller_Gnavi_index extends Controller_Base
 {
     // 入力フォームで扱うフィールドを配列として設定
     private $fields = array('name', 'area');
-
-    private $error_count = 0;
+    
+    private $data = array();
     
     /**
      * 店舗検索画面を表示させる関数
@@ -44,24 +44,20 @@ class Controller_Gnavi_index extends Controller_Base
 	    {
 	        Session::set_flash($field, Security::xss_clean(Input::post($field)));
 	    }
-
-        // エラーメッセージ用
-        $data = array();
         
         $val = Model_Gnavi_Data::validate();
 
         if ( ! $val->run())
         {
-            $this->error_count++;
             foreach ($val->error() as $key => $error)
             {
-                $data['error_msg'][$key] = $error->get_message();
+                $this->data['error_msg'][$key] = $error->get_message();
             }
         }
 
-        if ($this->error_count != 0)
+        if ( ! empty($this->data['error_msg']))
         {
-            $this->template->content = View::forge('gnavi/index', $data);
+            $this->template->content = View::forge('gnavi/index', $this->data);
             return;
         }
         
@@ -80,43 +76,38 @@ class Controller_Gnavi_index extends Controller_Base
      */
 	public function action_confirm()
 	{
-	    $data = array();
-
 	    foreach ($this->fields as $field)
 	    {
-	        $data[$field] = Session::get_flash($field);
+	        $this->data[$field] = Session::get_flash($field);
 
 	        Session::keep_flash($field);
 	    }
 
-	    // 都道府県コードを取得
-	    $pref_codes = Model_Gnavi_Data::getPrefCodes($data['area']);
-	
 	    // 店舗情報を取得
-	    $gnavi_info = Model_Gnavi_Data::getGnaviInfo(null, $data['name'], $pref_codes);
+	    $gnavi_data = Model_Gnavi_Data::fetchGnaviData(null, $this->data['name'], $this->data['area']);
 
-	    if (empty($gnavi_info))
+	    if (empty($gnavi_data))
 	    {
-	    	$data['gnavi_info'] = $gnavi_info;
-	    	$this->template->content = View::forge('gnavi/index', $data);
+	    	$this->data['gnavi_data'] = $gnavi_data;
+	    	$this->template->content = View::forge('gnavi/index', $this->data);
             return;
 	    }
 
-	    $gnavi_data = array();
+	    $data = array();
 	    // おいおい変更予定
 	    $image_url = 'http://shima-shima.jp/cms/wp-content/uploads/2012/05/LIV_550.jpg';
-	    foreach ($gnavi_info as $key => $val)
+	    foreach ($gnavi_data as $key => $val)
 	    {
-	    	$gnavi_data[$key]['id']      = $val->id;
-	    	$gnavi_data[$key]['name']    = $val->name;
-	    	$gnavi_data[$key]['url']     = $val->url;
-	    	$gnavi_data[$key]['address'] = $val->address;
-	    	$gnavi_data[$key]['image']   = is_object($val->image_url->shop_image1) ? $image_url : $val->image_url->shop_image1;
+	    	$data[$key]['id']      = $val->id;
+	    	$data[$key]['name']    = $val->name;
+	    	$data[$key]['url']     = $val->url;
+	    	$data[$key]['address'] = $val->address;
+	    	$data[$key]['image']   = is_object($val->image_url->shop_image1) ? $image_url : $val->image_url->shop_image1;
 	    }
 
-	    $gnavi_data['gnavi_info'] = $gnavi_data;
+	    $data['gnavi_data'] = $data;
 
-	    $this->template->content = View::forge('gnavi/confirm', $gnavi_data);
+	    $this->template->content = View::forge('gnavi/confirm', $data);
 
 	}
 	

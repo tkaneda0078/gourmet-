@@ -6,7 +6,6 @@ return array(
 	// グルメwebサービス
 	'register'          => 'register/index',
 	'register/(:any)'   => 'register/index/$1',
-	'register/complete' => 'mylist/index',
 	'detail'            => 'detail/index',
 	'modify'            => 'mylist/modify',
 	'about'             => 'about/index',
