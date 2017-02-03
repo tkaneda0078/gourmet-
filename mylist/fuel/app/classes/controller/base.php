@@ -21,7 +21,6 @@ class Controller_Base extends Controller_Template
     public function before()
     {
         parent::before();
-        
         //header.phpをテンプレートの$headerとbindさせる。
         $this->template->header = View::forge('parts/header');
         

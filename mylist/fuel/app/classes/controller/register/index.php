@@ -11,8 +11,6 @@ class Controller_Register_index extends Controller_Base
 {
     // 入力フォームで扱うフィールドを配列として設定
     private $fields = array('name', 'address', 'comments');
-
-    private $error_count = 0;
     
     /**
      * 店舗登録画面を表示させる関数
@@ -51,7 +49,6 @@ class Controller_Register_index extends Controller_Base
 
         if ( ! $val->run())
         {
-            $this->error_count++;
             foreach ($val->error() as $key => $error)
             {
                 $data['error_msg'][$key] = $error->get_message();
@@ -66,7 +63,7 @@ class Controller_Register_index extends Controller_Base
             $data['error_msg']['photo'] = $result;
         }
 
-        if ($this->error_count != 0)
+        if ( ! empty($data['error_msg']))
         {
             $this->template->content = View::forge('register/index', $data);
             return;
@@ -98,7 +95,6 @@ class Controller_Register_index extends Controller_Base
 	    Session::keep_flash('img_path');
 	    
 	    $this->template->content = View::forge('register/confirm', $data);
-
 	}
 	
     /**
@@ -123,11 +119,11 @@ class Controller_Register_index extends Controller_Base
      * @access protected
      * @todo 未対応（画像登録日時を日本時間に設定）
      */
-    protected function upload_process()
+    private function upload_process()
     {
         $config = array(
-            'path' => DOCROOT.'assets/img/avana/upload_photos',
-            'randomize' => false,
+            'path'          => DOCROOT.'assets/img/avana/upload_photos',
+            'randomize'     => false,
             'ext_whitelist' => array('img', 'jpg', 'jpeg', 'png'),
         );
         
@@ -159,7 +155,6 @@ class Controller_Register_index extends Controller_Base
         
         foreach (Upload::get_errors() as $file)
         {
-            $this->error_count++;
             return $file['errors'][0]['message'];
         }
         

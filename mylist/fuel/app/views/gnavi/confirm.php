@@ -2,7 +2,7 @@
 
 <main role="main-inner-wrapper" class="container">
 
-    <?php foreach (array_chunk($gnavi_info, 3) as $key => $store): ?>
+    <?php foreach (array_chunk($gnavi_data, 3) as $key => $store): ?>
 
     <div class="row">
 

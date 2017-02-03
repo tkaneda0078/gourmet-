@@ -46,9 +46,9 @@ return array(
 	 *
 	 * This MUST include the trailing slash ('/')
 	 */
-	'img_dir' => 'img/avana/',
-	'js_dir' => 'js/avana/',
-	'css_dir' => 'css/avana/',
+	'img_dir' => 'img/gourmet/',
+	'js_dir'  => 'js/gourmet/',
+	'css_dir' => 'css/gourmet/',
 
 	/**
 	 * You can also specify one or more per asset-type folders. You don't have

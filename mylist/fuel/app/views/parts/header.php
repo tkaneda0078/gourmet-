@@ -4,7 +4,7 @@
 
 	<h1>
 
-    	<a href="<?php echo Uri::create('mylist'); ?>" title="avana LLC"><?php echo Asset::img('gourmet.png', array('title' => 'avana LLC', 'alt' => 'avana LLC')); ?></a>
+    	<a href="<?php echo Uri::create('mylist'); ?>" title="gourmet"><?php echo Asset::img('gourmet.png', array('title' => 'gourmet', 'alt' => 'gourmet')); ?></a>
 
     </h1>
 

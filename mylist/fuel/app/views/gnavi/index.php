@@ -48,7 +48,7 @@
                         
                         <ul class="error_msg">
                             
-                            <?php if (isset($gnavi_info)): ?>
+                            <?php if (isset($gnavi_data)): ?>
                                     
                                 <div class="alert alert-warning" role="alert">
                                     
