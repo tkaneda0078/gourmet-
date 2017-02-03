@@ -44,9 +44,6 @@ class Controller_Gnavi_index extends Controller_Base
 	    {
 	        Session::set_flash($field, Security::xss_clean(Input::post($field)));
 	    }
-
-        // エラーメッセージ用
-        // $data = array();
         
         $val = Model_Gnavi_Data::validate();
 
