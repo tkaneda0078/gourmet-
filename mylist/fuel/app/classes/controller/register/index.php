@@ -122,7 +122,7 @@ class Controller_Register_index extends Controller_Base
     private function upload_process()
     {
         $config = array(
-            'path'          => DOCROOT.'assets/img/avana/upload_photos',
+            'path'          => DOCROOT.'assets/img/gourmet/upload_photos',
             'randomize'     => false,
             'ext_whitelist' => array('img', 'jpg', 'jpeg', 'png'),
         );
