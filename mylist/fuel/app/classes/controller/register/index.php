@@ -92,7 +92,6 @@ class Controller_Register_index extends Controller_Base
 	    }
 
 	    $data['img_path'] = Session::get_flash('img_path');
-
 	    Session::keep_flash('img_path');
 	    
 	    $this->template->content = View::forge('register/confirm', $data);
