@@ -92,6 +92,7 @@ class Controller_Register_index extends Controller_Base
 	    }
 
 	    $data['img_path'] = Session::get_flash('img_path');
+
 	    Session::keep_flash('img_path');
 	    
 	    $this->template->content = View::forge('register/confirm', $data);
@@ -122,7 +123,7 @@ class Controller_Register_index extends Controller_Base
     private function upload_process()
     {
         $config = array(
-            'path'          => DOCROOT.'assets/img/avana/upload_photos',
+            'path'          => DOCROOT.'assets/img/gourmet/upload_photos',
             'randomize'     => false,
             'ext_whitelist' => array('img', 'jpg', 'jpeg', 'png'),
         );
