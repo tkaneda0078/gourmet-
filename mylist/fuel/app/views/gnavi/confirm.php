@@ -25,12 +25,14 @@
                     	<h3><?php echo $val['name']; ?></h3>
 
                         <h5><?php echo $val['address']; ?></h5>
-                        
+
                         <h6><?php echo Form::submit('submit', 'register', array('class' => 'gnavi-button')); ?></h6>
 
                     </figcaption>
 
                 </figure>
+
+                <p>提供：ぐるなび</p>
 
             </section>
             
@@ -39,15 +41,15 @@
                 echo Form::hidden('id', $val['id']);
         
                 echo Form::hidden('name', $val['name']);
-                
+
                 echo Form::hidden('address', $val['address']);
-                
+    
                 echo Form::hidden('url', $val['url']);
-                
+    
                 echo Form::hidden('image', $val['image']);
 
                 echo Form::close();
-                
+    
                 endforeach;
             ?>
 
