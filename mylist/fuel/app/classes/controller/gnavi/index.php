@@ -105,7 +105,8 @@ class Controller_Gnavi_index extends Controller_Base
 	    	$data[$key]['image']   = is_object($val->image_url->shop_image1) ? $image_url : $val->image_url->shop_image1;
 	    }
 
-	    $data['gnavi_data'] = $data;
+	    $data['gnavi_data']         = $data;
+	    $data['target_store_count'] = count($data['gnavi_data']);
 
 	    $this->template->content = View::forge('gnavi/confirm', $data);
 
