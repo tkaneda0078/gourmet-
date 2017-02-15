@@ -8,6 +8,7 @@ return array(
 	'register/(:any)'   => 'register/index/$1',
 	'detail'            => 'detail/index',
 	'modify'            => 'mylist/modify',
+	'delete'            => 'mylist/delete',
 	'about'             => 'about/index',
 	'gnavi'             => 'gnavi/index',
 	'gnavi/(:any)'      => 'gnavi/index/$1',

@@ -27,11 +27,11 @@ class Presenter_Mylist_index extends Presenter
 			->on('a.shop_photo_id', '=', 'b.shop_id')
 			->join(array(\Model_Gnavi_data::table(), 'g'), 'LEFT')
 			->on('a.gnavi_id', '=', 'g.gnavi_shop_id')
+			->where('a.deleted_at', 'is', null)
 			->order_by('a.id', 'desc')
 			->execute()->as_array();
 
 		$this->set('gourmet_list', $gourmet_list);
-		
 	}
 	
 	/**

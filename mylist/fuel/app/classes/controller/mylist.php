@@ -11,7 +11,7 @@
 class Controller_Mylist extends Controller_Base
 {
 	/**
-     * 店舗情報を取得する関数
+     * 店舗情報を取得する
      *
      * プレゼンタで処理を行い、全店舗情報を取得する。
      * 
@@ -24,7 +24,7 @@ class Controller_Mylist extends Controller_Base
 	}
 	
 	/**
-     * [POST]店舗情報を修正する関数
+     * [POST]店舗情報を修正する
      *
      * POSTで受け取った店舗IDをプレゼンタに渡す。
      * プレゼンタで処理を行う。
@@ -37,4 +37,18 @@ class Controller_Mylist extends Controller_Base
 		$this->template->content = Presenter::forge('mylist/modify')
 			->set('shop_id', Input::post('shop_id'));
 	}
+	
+	/**
+     * [POST]店舗情報を削除する
+     * 
+     * @access public
+     */
+	public function action_delete()
+	{
+		$shop_data = Model_Shop_Data::find(Input::post('shop_id'));
+		$shop_data->delete();
+		
+		Response::redirect('mylist/index');
+	}
+	
 }

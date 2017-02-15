@@ -9,7 +9,7 @@
  * @author tkaneda
  * @package Model
  */
-class Model_Shop_Data extends \Orm\Model
+class Model_Shop_Data extends \Orm\Model_Soft
 {
 	protected static $_has_many = array(
 		'shop_photos' => array(
@@ -29,7 +29,7 @@ class Model_Shop_Data extends \Orm\Model
 		'address',
 		'comments',
 		'release_flag',
-		'delete_at',
+		'deleted_at',
 		'created_at',
 		'updated_at',
 	);
@@ -44,6 +44,11 @@ class Model_Shop_Data extends \Orm\Model
 			'mysql_timestamp' => true,
 		),
 	);
+	
+	protected static $_soft_delete = array(
+        'deleted_field' => 'deleted_at',
+        'mysql_timestamp' => true,
+    );
 
 	protected static $_table_name = 'shop_data';
 	

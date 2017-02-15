@@ -52,6 +52,16 @@
     
     <div class="contat-from-wrapper">
     
+    <?php 
+        echo Form::open('delete');
+        
+        echo Form::hidden('shop_id', $shop_id);
+        
+        echo Form::submit('submit', 'delete');
+    
+        echo Form::close();
+    ?>
+    
     <!-- 編集は保留 -->
     <?php //echo Form::open('modify'); ?>
     

@@ -8,7 +8,7 @@
  * @package Model
  * @access protected
  */
-class Model_Shop_Photo extends \Orm\Model
+class Model_Shop_Photo extends \Orm\Model_Soft
 {
 	protected static $_belongs_to = array(
 		'shop_data' => array(
@@ -16,7 +16,7 @@ class Model_Shop_Photo extends \Orm\Model
 			'key_from'       => 'shop_id',
 			'key_to'         => 'shop_photo_id',
 			'cascade_save'   => 'true',
-			'cascade_delete' => 'false',
+			'cascade_delete' => 'true',
 		)
 	);
 	
@@ -28,6 +28,7 @@ class Model_Shop_Photo extends \Orm\Model
 		'size',
 		'saved_to',
 		'release_flag',
+		'deleted_at',
 		'created_at',
 		'updated_at',
 	);
@@ -42,6 +43,11 @@ class Model_Shop_Photo extends \Orm\Model
 			'mysql_timestamp' => true,
 		),
 	);
+	
+	protected static $_soft_delete = array(
+        'deleted_field' => 'deleted_at',
+        'mysql_timestamp' => true,
+    );
 
 	protected static $_table_name = 'shop_photos';
 
