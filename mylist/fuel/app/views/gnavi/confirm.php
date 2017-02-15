@@ -1,14 +1,28 @@
 <!-- main -->
 
-<main role="main-inner-wrapper" class="container">
+<main role="main-inner-wrapper">
+    
+    <div>
 
+    	<article role="pge-title-content">
+
+        	<header>
+
+            	<h2><span>gourmet</span>Search results XXX stores applicable.</h2>
+
+            </header>
+
+        </article>
+
+    </div>
+        
     <?php foreach (array_chunk($gnavi_data, 3) as $key => $store): ?>
 
     <div class="row">
 
     <!-- thumbnails -->
 
-    	<div class="thumbnails-pan member-img">
+    	<div class="thumbnails-pan">
     	    
     	    <?php foreach ($store as $val): ?>
     	    
@@ -16,9 +30,9 @@
 
         	<section class="col-xs-12 col-sm-4 col-md-4 col-lg-4 ">
 
-            	<figure class="gnavi-image-size">
+            	<figure>
 
-                    <img src="<?php echo $val['image']; ?>">
+                    <img class="gnavi-image-size" src="<?php echo $val['image']; ?>">
 
                 	<figcaption>
 

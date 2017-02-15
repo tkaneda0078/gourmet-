@@ -2,8 +2,8 @@
  トップ画面
 */
 .top-img-size {
- width: 555px;
- height: 370px;
+ width: 555px !important;
+ height: 370px !important;
 }
 
 /*
@@ -95,4 +95,16 @@ ul.share-buttons .sr-only {
  background-color: #e84d49;
  margin: 15px auto;
  margin-bottom: 0;  
+}
+
+/*.container {*/
+/*    width: 100%;*/
+/*    position: relative;*/
+/*    height: auto !important;*/
+/*    height: 100%;*/
+/*    min-height: 100%;*/
+/*}*/
+
+.body {
+    margin-bottom: 5em;
 }
