@@ -19,6 +19,7 @@
             	<figure class="gnavi-image-size">
 
                     <img src="<?php echo $val['image']; ?>">
+                    
 
                 	<figcaption>
 
@@ -27,11 +28,13 @@
                         <h5><?php echo $val['address']; ?></h5>
                         
                         <h6><?php echo Form::submit('submit', 'register', array('class' => 'gnavi-button')); ?></h6>
-
+                        
                     </figcaption>
 
                 </figure>
-
+                
+                <p>提供：ぐるなび</p>
+                
             </section>
             
             <?php
