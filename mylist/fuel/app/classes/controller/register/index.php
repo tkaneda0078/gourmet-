@@ -121,8 +121,11 @@ class Controller_Register_index extends Controller_Base
      */
     private function upload_process()
     {
+        // 画像の保存先を取得
+        $data = $this->getDirectoryName();
+        
         $config = array(
-            'path'          => DOCROOT.'assets/img/gourmet/upload_photos',
+            'path'          => $data['save_dir'],
             'randomize'     => false,
             'ext_whitelist' => array('img', 'jpg', 'jpeg', 'png'),
         );
@@ -145,7 +148,7 @@ class Controller_Register_index extends Controller_Base
                 
                 if (isset($file['saved_as']))
                 {
-                    Session::set_flash('img_path', 'upload_photos/'.$file['saved_as']);
+                    Session::set_flash('img_path', 'save/upload_photos' . $data['num'] . '/' . $file['saved_as']);
                 }
             }
             
@@ -160,5 +163,57 @@ class Controller_Register_index extends Controller_Base
         
         return;
     }
+    
+     /**
+     * 画像の保存先を取得
+     * 
+     * 画像の保存先を取得する。
+     * また、保存先の画像枚数を数えて、
+     * 指定した保存量を超えた場合に保存先を変更する。
+     * 
+     * @access private
+     * @return array
+     */
+    private function getDirectoryName()
+    {
+        $data = array();
+        
+        $parent_dir = DOCROOT.'assets/img/gourmet/save';
+        $child_dir  = $parent_dir . '/upload_photos'; // 画像保存先（デフォルト）
+        
+        // 親ディレクトリ配下のディレクトリ数をカウント
+        $parent_num = count(scandir($parent_dir)) - 2;
+        
+        //初回と２回目
+        if ($parent_num == 1)
+        {
+            // 子ディレクトリ配下の画像枚数をカウント
+            $child_num = count(scandir($child_dir)) - 2;
+            $data['num'] = '';
+            $flag = true;
+        }
+        else
+        {
+            $parent_num -= 1;
+            // 子ディレクトリ配下の画像枚数をカウント
+            $child_num = count(scandir($child_dir . $parent_num)) - 2;
+            $data['num'] = $parent_num += 1;
+        }
+        
+        // 指定保存量を超えたときに保存先を変更
+        if ($child_num >= 20)
+        {
+            if (isset($flag))
+            {
+                $data['num'] = 1;
+            }
+            
+            $child_dir = $child_dir . $parent_num;
+        }
+        $data['save_dir'] = $child_dir;
+        
+        return $data;
+    }
+
 
 }
