@@ -8,7 +8,7 @@
 
         	<header>
 
-            	<h2><span>gourmet</span>Search results XXX stores applicable.</h2>
+            	<h2><span>gourmet</span>Search results <?php echo $target_store_count; ?> stores applicable.</h2>
 
             </header>
 
