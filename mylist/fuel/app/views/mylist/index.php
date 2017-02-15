@@ -66,11 +66,11 @@
                 
                 <figcaption>
     
-                	<h2><?php echo $data['name']; ?></h2>
+                    <h2><?php echo $data['name']; ?></h2>
     
-    				<p><?php echo $data['address']; ?></p>
+                    <p><?php echo $data['address']; ?></p>
     
-    				<a href="<?php echo Uri::create('detail', array(), array('id' => $data['id'])); ?>">View more</a>
+                    <a href="<?php echo Uri::create('detail', array(), array('id' => $data['id'])); ?>">View more</a>
     
                 </figcaption>
     
@@ -104,9 +104,9 @@
 
                     <h2><?php echo $data['name']; ?></h2>
     
-    				<p><?php echo $data['address']; ?></p>
+                    <p><?php echo $data['address']; ?></p>
     
-    				<a href="<?php echo Uri::create('detail', array(), array('id' => $data['id'])); ?>">View more</a>
+                    <a href="<?php echo Uri::create('detail', array(), array('id' => $data['id'])); ?>">View more</a>
 
                 </figcaption>
 
