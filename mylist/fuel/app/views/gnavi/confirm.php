@@ -20,7 +20,6 @@
 
                     <img src="<?php echo $val['image']; ?>">
                     
-
                 	<figcaption>
 
                     	<h3><?php echo $val['name']; ?></h3>
