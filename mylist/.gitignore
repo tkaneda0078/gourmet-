@@ -33,5 +33,5 @@ desktop.ini
 /fuel/app/config/crypt.php
 /fuel/app/classes/model/gnavi/data.php
 
-/public/img/*
-/public/img/gourmet/*/*
+/public/assets/img/*
+/public/assets/img/gourmet/*/*

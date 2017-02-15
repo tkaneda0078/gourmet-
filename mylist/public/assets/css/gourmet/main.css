@@ -2,8 +2,8 @@
  トップ画面
 */
 .top-img-size {
- width: 555px;
- height: 370px;
+ width: 555px !important;
+ height: 370px !important;
 }
 
 /*
