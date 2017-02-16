@@ -96,3 +96,36 @@ ul.share-buttons .sr-only {
  margin: 15px auto;
  margin-bottom: 0;  
 }
+
+/*
+ delete-modal
+*/
+#delete-modal .modal-button-yes {
+ border: none;
+ width: 100px;
+ line-height: 35px;
+ font-size: 21px;
+ color: #FFF;
+ font-weight: 800;
+ letter-spacing: 2px;
+ background-color: #e84d49;
+}
+
+#delete-modal .modal-button-no {
+ border: none;
+ width: 100px;
+ line-height: 35px;
+ font-size: 21px;
+ color: #FFF;
+ font-weight: 800;
+ letter-spacing: 2px;
+ background-color: #999;
+}
+
+#delete-modal .modal-title {
+ padding-top: 10px;
+}
+
+#delete-modal .modal-header {
+    height: 70px;
+}
