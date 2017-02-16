@@ -60,16 +60,61 @@
             
             <?php echo Form::submit('submit', 'modify', array('onClick' => 'form.action="modify"; return true')); ?>
             
-            <?php echo Form::submit('submit', 'delete', array('onClick' => 'form.action="delete"; return true')); ?>
-        
+            <?php echo Form::button('button', 'delete', array('type' => 'button', 'data-toggle' => 'modal', 'data-target' => '#delete-modal')); ?>
+            
         </div>
         
         <?php echo Form::hidden('shop_id', $shop_id); ?>
     
-    </<div>
+    </div>
     
     <?php echo Form::close(); ?>
     
-    </<div>
+    </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    
+    <div class="modal-dialog" role="document">
+    
+        <div class="modal-content">
+    
+            <div class="modal-header">
+        
+            <h4 class="modal-title" id="exampleModalLabel"><?php echo $shop_data['name']; ?></h4>
+        
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        
+                <span aria-hidden="true">&times;</span>
+        
+                </button>
+        
+            </div>
+        
+            <div class="modal-body">
+        
+                <h3>Are you sure you want to delete it ?</h3>
+        
+            </div>
+            
+            <?php echo Form::open(); ?>
+        
+            <div class="modal-footer">
+        
+                <?php echo Form::button('button', 'NO', array('class' => 'modal-button-no', 'data-dismiss' => 'modal')); ?>
+        
+                <?php echo Form::button('button', 'YES', array('class' => 'modal-button-yes', 'onClick' => 'form.action="delete"; return true')); ?>
+                
+                <?php echo Form::hidden('shop_id', $shop_id); ?>
+        
+            </div>
+            
+            <?php echo Form::close(); ?>
+        
+        </div>
+    
+    </div>
 
 </div>

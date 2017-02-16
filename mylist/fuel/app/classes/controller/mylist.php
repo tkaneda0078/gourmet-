@@ -31,7 +31,11 @@ class Controller_Mylist extends Controller_Base
 	public function action_delete()
 	{
 		$shop_data = Model_Shop_Data::find(Input::post('shop_id'));
-		$shop_data->delete();
+		
+		if ( ! $shop_data->delete())
+		{
+			throw new HttpServerException;
+		}
 		
 		Response::redirect('mylist/index');
 	}
