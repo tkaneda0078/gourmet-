@@ -1,46 +1,46 @@
 <div class="row">
 
-    <div class="clearfix">
-        
-        <!-- alert-messege-area -->
-        
-        <section>
-            
-            <div>
-                
-                <ul class="error_msg">
-                    
-                    <?php if (isset($error_msg)): ?>
-                    
-                        <?php foreach ($error_msg as $message): ?>
-                        
-                        <li>
-                            
-                            <?php echo $message; ?>
-                            
-                        </li>
-                        
-                        <?php endforeach; ?>
-                        
-                    <?php endif; ?>
-                    
-                </ul>
-                
-            </div>
-            
-        </section>
-    
-        <!-- alert-messege-area -->
-        
-    </div>
-    
     <!-- contat-from-wrapper -->
 
    <div class="contat-from-wrapper">
 
         <div id="message"></div>
 
-            <?php echo Form::open(array('action' => 'register')); ?>
+            <?php echo Form::open(array('action' => 'modify/confirm')); ?>
+            
+                <!-- alert-messege-area -->
+                
+                <section>
+                    
+                    <div>
+                        
+                        <ul class="error_msg">
+                            
+                            <?php if (isset($error_msg)): ?>
+                            
+                                <?php foreach ($error_msg as $message): ?>
+                                
+                                <li>
+                                    
+                                    <div class="alert alert-danger" role="alert">
+                                                
+                                        <?php echo $message; ?>
+                                            
+                                    </div>
+                                    
+                                </li>
+                                
+                                <?php endforeach; ?>
+                                
+                            <?php endif; ?>
+                            
+                        </ul>
+                        
+                    </div>
+                    
+                </section>
+            
+                <!-- alert-messege-area -->
 
                 <div class="row">
 
@@ -71,6 +71,8 @@
                         <?php foreach ($img_paths as $path): ?>
             
                         <li><?php echo Asset::img($path, array('class' => 'img-responsive img-size')); ?></li>
+                        
+                        <?php echo Form::hidden('img_path', $path); ?>
                         
                         <?php endforeach; ?>
                         

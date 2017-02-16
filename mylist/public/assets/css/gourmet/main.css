@@ -96,3 +96,7 @@ ul.share-buttons .sr-only {
  margin: 15px auto;
  margin-bottom: 0;  
 }
+
+form .btn-group {
+    display: inline;
+}
