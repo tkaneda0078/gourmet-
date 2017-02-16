@@ -52,24 +52,23 @@
     
     <div class="contat-from-wrapper">
     
-    <?php 
-        echo Form::open('delete');
+    <?php echo Form::open(); ?>
+    
+    <div class="form-inline">
         
-        echo Form::hidden('shop_id', $shop_id);
+        <div class="btn-group">
+            
+            <?php echo Form::submit('submit', 'modify', array('onClick' => 'form.action="modify"; return true')); ?>
+            
+            <?php echo Form::submit('submit', 'delete', array('onClick' => 'form.action="delete"; return true')); ?>
         
-        echo Form::submit('submit', 'delete');
+        </div>
+        
+        <?php echo Form::hidden('shop_id', $shop_id); ?>
     
-        echo Form::close();
-    ?>
+    </<div>
     
-    <!-- 編集は保留 -->
-    <?php //echo Form::open('modify'); ?>
-    
-        <?php //echo Form::hidden('shop_id', $shop_id); ?>
-        <?php //echo Form::submit('submit', 'modify'); ?>
-    
-    <?php //echo Form::close(); ?>
-    <!-- 編集は保留 -->
+    <?php echo Form::close(); ?>
     
     </<div>
 

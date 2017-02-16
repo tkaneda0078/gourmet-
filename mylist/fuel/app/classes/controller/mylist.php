@@ -24,21 +24,6 @@ class Controller_Mylist extends Controller_Base
 	}
 	
 	/**
-     * [POST]店舗情報を修正する
-     *
-     * POSTで受け取った店舗IDをプレゼンタに渡す。
-     * プレゼンタで処理を行う。
-     * 
-     * @access public
-     * @see Presenter_Mylist_modify::view
-     */
-	public function action_modify()
-	{
-		$this->template->content = Presenter::forge('mylist/modify')
-			->set('shop_id', Input::post('shop_id'));
-	}
-	
-	/**
      * [POST]店舗情報を削除する
      * 
      * @access public
