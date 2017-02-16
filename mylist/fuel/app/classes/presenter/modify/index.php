@@ -54,8 +54,8 @@ class Presenter_Modify_index extends Presenter
 	{
 	    \DB::start_transaction();
 	    
-	    try
-	    {
+        try
+        {
             $shop_id = Session::get_flash('shop_id');
             
             $query = Model_Shop_data::find($shop_id);
@@ -64,26 +64,26 @@ class Presenter_Modify_index extends Presenter
                 'address'  => $this->shop_data['address'],
                 'comments' => $this->shop_data['comments'],
             ));
-            
+        
             if ( ! $query->save())
             {
                 \DB::rollback_transaction();
                 return false;
             }
-            
+        
             \DB::commit_transaction();
-	    }
-	    catch (\Exception $e)
-	    {
+        }
+        catch (\Exception $e)
+        {
             \DB::rollback_transaction();
             echo "The exception was created on line: " . $e->getLine();
             echo $e->getFile();
             echo '<br>';
             echo $e->getMessage();
             throw new HttpServerErrorException;
-	    }
-	    
-	    return Response::redirect('mylist');
+        }
+        
+        return Response::redirect('mylist');
 	}
 
 }
