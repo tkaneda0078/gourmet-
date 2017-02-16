@@ -56,31 +56,31 @@ class Presenter_Modify_index extends Presenter
 	    
 	    try
 	    {
-	        $shop_id = Session::get_flash('shop_id');
-	    
-    	    $query = Model_Shop_data::find($shop_id);
-    	    $query->set(array(
-    	        'name'     => $this->shop_data['name'],
-    	        'address'  => $this->shop_data['address'],
-    	        'comments' => $this->shop_data['comments'],
-    	    ));
-    	    
-    	    if ( ! $query->save())
-    	    {
-    	        \DB::rollback_transaction();
-				return false;
-    	    }
-    	    
-    	    \DB::commit_transaction();
+            $shop_id = Session::get_flash('shop_id');
+            
+            $query = Model_Shop_data::find($shop_id);
+            $query->set(array(
+                'name'     => $this->shop_data['name'],
+                'address'  => $this->shop_data['address'],
+                'comments' => $this->shop_data['comments'],
+            ));
+            
+            if ( ! $query->save())
+            {
+                \DB::rollback_transaction();
+                return false;
+            }
+            
+            \DB::commit_transaction();
 	    }
 	    catch (\Exception $e)
 	    {
-	        \DB::rollback_transaction();
-			echo "The exception was created on line: " . $e->getLine();
-			echo $e->getFile();
-			echo '<br>';
-			echo $e->getMessage();
-			throw new HttpServerErrorException;
+            \DB::rollback_transaction();
+            echo "The exception was created on line: " . $e->getLine();
+            echo $e->getFile();
+            echo '<br>';
+            echo $e->getMessage();
+            throw new HttpServerErrorException;
 	    }
 	    
 	    return Response::redirect('mylist');

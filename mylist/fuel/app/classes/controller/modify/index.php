@@ -20,12 +20,12 @@ class Controller_Modify_Index extends Controller_Base
      * @see Presenter_Modify_index::view
      */
     public function action_index()
-	{
-	    Session::set_flash('shop_id', Input::post('shop_id'));
-	    
-	    $this->template->content = Presenter::forge('modify/index')
-			->set('shop_id', Input::post('shop_id'));
-	}
+    {
+        Session::set_flash('shop_id', Input::post('shop_id'));
+        
+        $this->template->content = Presenter::forge('modify/index')
+            ->set('shop_id', Input::post('shop_id'));
+    }
 	
 	/**
      * [POST]店舗情報を編集する
