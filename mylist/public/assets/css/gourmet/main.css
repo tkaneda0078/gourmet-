@@ -1,0 +1,131 @@
+/*
+ トップ画面
+*/
+.top-img-size {
+ width: 555px !important;
+ height: 370px !important;
+}
+
+/*
+ 登録画面
+*/
+.error_msg {
+    color: #e84d49;
+    list-style: none;
+}
+
+#select_photo {
+  color: #FFF;  
+  background-color: #e84d49;
+  padding: 6px;
+  border-radius: 12px;
+}
+
+.img-size {
+  width: 1002px;
+  height: 525.781px;
+}
+
+/*
+ SNSボタン用
+*/
+ul.share-buttons{
+  list-style: none;
+  padding: 0;
+}
+
+ul.share-buttons li{
+  display: inline;
+}
+
+ul.share-buttons .sr-only {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+/*
+ 初期ボタン用
+*/
+.fast-register {
+    display: block;
+    text-align: center;
+    width: 200px;
+    line-height: 60px;
+    text-transform: uppercase;
+    font-size: 21px;
+    color: rgb(255, 255, 255);
+    font-weight: 800;
+    letter-spacing: 2px;
+    background-color: rgb(232, 77, 73);
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    outline: none;
+    margin: 41px auto 0px;
+}
+
+.fast-register:hover { 
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+/*
+ gnavi検索画面
+*/
+.gnavi-image-size {
+  width: 360px;
+  height: 210px;
+}
+
+.gnavi-button {
+ width: 200px;
+ line-height: 45px;
+ text-transform: uppercase;
+ font-size: 21px;
+ color: #FFF;
+ font-weight: 800;
+ letter-spacing: 2px;
+ background-color: #e84d49;
+ margin: 15px auto;
+ margin-bottom: 0;  
+}
+
+/*
+ delete-modal
+*/
+#delete-modal .modal-button-yes {
+ border: none;
+ width: 100px;
+ line-height: 35px;
+ font-size: 21px;
+ color: #FFF;
+ font-weight: 800;
+ letter-spacing: 2px;
+ background-color: #e84d49;
+}
+
+#delete-modal .modal-button-no {
+ border: none;
+ width: 100px;
+ line-height: 35px;
+ font-size: 21px;
+ color: #FFF;
+ font-weight: 800;
+ letter-spacing: 2px;
+ background-color: #999;
+}
+
+#delete-modal .modal-title {
+ padding-top: 10px;
+}
+
+#delete-modal .modal-header {
+    height: 70px;
+}
