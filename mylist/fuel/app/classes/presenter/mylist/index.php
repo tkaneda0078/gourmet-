@@ -29,6 +29,8 @@ class Presenter_Mylist_index extends Presenter
             ->on('a.gnavi_id', '=', 'g.gnavi_shop_id')
             ->order_by('a.id', 'desc')
             ->execute()->as_array();
+            
+            // debug::dump($gourmet_list);exit;
 
         $this->set('gourmet_list', $gourmet_list);
         

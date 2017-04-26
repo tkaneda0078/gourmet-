@@ -131,7 +131,7 @@ class Controller_Gnavi_index extends Controller_Base
 	public function action_complete()
 	{
 		Session::destroy();
-		
+
 		$this->template->content = Presenter::forge('gnavi/index', 'register')
             ->set('gnavi_data', Input::post());
 	}

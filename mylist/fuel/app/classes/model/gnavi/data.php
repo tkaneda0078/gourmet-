@@ -19,7 +19,7 @@ class Model_Gnavi_Data extends \Orm\Model
 		'url',
 		'image',
 		'release_flag',
-		'delete_at',
+		'deleted_at',
 		'created_at',
 		'updated_at',
 	);

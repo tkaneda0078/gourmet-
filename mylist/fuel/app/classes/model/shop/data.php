@@ -29,7 +29,7 @@ class Model_Shop_Data extends \Orm\Model
 		'address',
 		'comments',
 		'release_flag',
-		'delete_at',
+		'deleted_at',
 		'created_at',
 		'updated_at',
 	);

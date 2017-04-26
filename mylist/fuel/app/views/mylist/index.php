@@ -55,7 +55,7 @@
         	<figure class="effect-oscar">
                 
                 <?php if (empty($data['saved_to'])): ?>
-                
+
                 <?php echo Asset::img($data['image'], array('class' => 'img-responsive top-img-size')); ?>
                 
                 <?php else: ?>
